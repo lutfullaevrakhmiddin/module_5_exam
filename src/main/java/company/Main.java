@@ -1,8 +1,11 @@
 package company;
 
+import company.model.User;
+
+import java.util.UUID;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello World");
-        System.out.println("Hello My First GitHubAccount");
+        User user = new User(UUID.randomUUID(), "lutfullayevrahmiddin", "Rahmiddin", 22);
     }
 }
