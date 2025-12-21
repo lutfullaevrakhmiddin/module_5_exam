@@ -1,17 +1,22 @@
 package company.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import company.enums.Role;
+import lombok.*;
 
 import java.util.UUID;
 
-@Data
+
+@Getter
+@Setter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-    private UUID uuid;
-    private String username;
+    private UUID id;
     private String name;
-    private int age;
+    private String username;
+    private String email;
+    private String password;
+    private Role role;
 }
