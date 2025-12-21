@@ -8,6 +8,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @AllArgsConstructor
+@ToString
 public class Order {
     private UUID id;
     private UUID customerId;

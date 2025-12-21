@@ -1,6 +1,9 @@
 package company.controller;
 
+import company.model.Order;
 import company.model.Product;
+import company.repository.OrderRepository;
+import company.repository.ProductRepository;
 import company.service.ProductService;
 import company.utils.Util;
 
@@ -13,6 +16,7 @@ import static company.utils.Util.*;
 public class AdminController {
     private static AdminController adminController;
     private static ProductService productService = ProductService.getInstance();
+    private static OrderRepository orderRepository = OrderRepository.getInstance();
 
     private AdminController() {
     }
@@ -40,9 +44,19 @@ public class AdminController {
                 case 2 -> deleteProduct();
                 case 3 -> updateProduct();
                 case 4 -> viewAllProducts();
-//                case 5 -> viewOrderHistory();
+                case 5 -> viewOrderHistory();
                 case 6 -> b = false;
             }
+        }
+    }
+
+    private void viewOrderHistory() {
+        Optional<List<Order>> allOrders = orderRepository.getAllOrders();
+        if (allOrders.isPresent()) {
+            List<Order> orders = allOrders.get();
+            orders.forEach(System.out::println);
+        } else {
+            System.out.println("hech qanday order mavjud emas");
         }
     }
 
